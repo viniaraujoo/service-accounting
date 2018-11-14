@@ -4,14 +4,11 @@ reset=`tput sgr0`;
 
 clear;
 
-while true
+while true 
 do
-  echo -n "${red}${bold}"'ll-best-shell~$'"${reset} ";
+  echo -n "${red}${bold}"'ll-best-shell:'"$(pwd)"'$'"${reset} ";
   read -a line;
 
-  if [ "$line" = "exit" ] ; then
-     exit 0;
-  fi
+  ${line[@]};     
 
-  echo "${line[@]}" | bash;
 done < "${1:-/dev/stdin}";
