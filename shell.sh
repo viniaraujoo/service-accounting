@@ -13,7 +13,7 @@ function short_dir {
     echo $dir;
 }
 
-while read -p "${red}${bold}$USER"'@ll-best-shell:'"${blue}${bold}$(short_dir)"'$'"${reset} " -ea line;
+while read -p "${red}${bold}$USER"'@ll-best-shell'"${reset}:${blue}${bold}$(short_dir)"'$'"${reset} " -ea line;
 do
 
   ${line[@]}; 
