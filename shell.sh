@@ -4,6 +4,7 @@ reset=`tput sgr0`;
 blue=`tput setaf 33`;
 
 clear;
+cd;
 
 function short_dir {
     dir=$(pwd);
