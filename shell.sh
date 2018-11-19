@@ -1,3 +1,5 @@
+#!/bin/bash
+
 red=`tput setaf 2`;
 bold=`tput bold`;
 reset=`tput sgr0`;
@@ -17,7 +19,11 @@ function short_dir {
 while read -p "${red}${bold}$USER"'@ll-best-shell'"${reset}:${blue}${bold}$(short_dir)${reset}"'$ ' -ea line;
 do
 
-  ${line[@]}; 
+  if [[ "${line[0]}" = "cd" ]] ; then
+      ${line[@]};
+  else
+      echo "${line[@]}" | bash; 
+  fi;
 
 done < "${1:-/dev/stdin}";
 echo
