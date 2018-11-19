@@ -22,7 +22,7 @@ do
   if [[ "${line[0]}" = "cd" ]] ; then
       ${line[@]};
   else
-      echo "${line[@]}" | time -ao accounting.txt -f "\t%E real,\t%U user,\t%S sys" bash; 
+      echo "${line[@]}" | time -ao accounting.txt -f "%E real, %U user, %S sys" bash; 
   fi;
 
 done < "${1:-/dev/stdin}";
