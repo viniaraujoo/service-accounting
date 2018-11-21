@@ -19,11 +19,13 @@ function short_dir {
 while read -p "${red}${bold}$USER"'@ll-best-shell'"${reset}:${blue}${bold}$(short_dir)${reset}"'$ ' -ea line;
 do
 
-  if [[ "${line[0]}" = "cd" ]] ; then
+  if [[ "${line[0]}" = "cd" ]] || [[ "${line[0]}" = "exit" ]] ; then
       ${line[@]};
   else
-      echo "${line[@]}" | time -ao accounting.txt -f "%E real, %U user, %S sys" bash; 
+      echo "${line[@]}" | time -ao ~/accounting.txt -f "%E real, %U user, %S sys" bash; 
   fi;
+
+  echo "${line[@]}" >> ~/command_history
 
 done < "${1:-/dev/stdin}";
 echo
