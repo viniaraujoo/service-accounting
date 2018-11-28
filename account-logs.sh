@@ -14,5 +14,11 @@ echo "$total";
 echo;
 echo "==================   Histogram   =================="
 echo;
-echo "$commands" | awk '{lst[$1]++} END {for (i in lst) {printf("%10s: %d\n", i, lst[i])}}' | sort -n -k2;
+
+if ! [ -z "$commands" ] ; then
+    echo "$commands" | awk '{lst[$1]++} END {for (i in lst) {printf("%10s: %d\n", i, lst[i])}}' | sort -n -k2;
+else
+    echo "No history on this date";
+fi
+
 echo;
