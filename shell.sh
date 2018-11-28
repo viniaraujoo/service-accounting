@@ -44,7 +44,7 @@ do
   if [[ "${line[0]}" = "cd" ]] || [[ "${line[0]}" = "exit" ]] ; then
       ${line[@]};
   else
-      echo "${line[@]}" | /usr/bin/time -ao ~/accounting.txt -f "$id %E %U %S" bash; 
+      echo "${line[@]}" | /usr/bin/time -ao ~/accounting.txt -f "$id %e %U %S" bash; 
   fi;
 
   echo "$id $(date +\%F) ${line[0]}" >> ~/command_history
